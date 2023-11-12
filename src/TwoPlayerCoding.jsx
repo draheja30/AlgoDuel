@@ -1,5 +1,5 @@
 import React from 'react';
-import PlayerSection from './playersection.jsx'; // Import PlayerSection component
+import PlayerSection from './Playersection.jsx'; // Import PlayerSection component
 
 function TwoPlayerCoding() {
     return (
