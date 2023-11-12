@@ -8,10 +8,22 @@ import MyEditor from './MyEditor.jsx'
 
 function Duel() {
 
+    const onChange = (action, data) => {
+        switch (action) {
+          case "code": {
+            setCode(data);
+            break;
+          }
+          default: {
+            console.warn("case not handled!", action, data);
+          }
+        }
+      };
+
     return (
         <div className='Duel'>
             <div style={{display: 'flex'}}>
-                <MyEditor blur={false}/>
+                <MyEditor blur={false} onChange={onChange}/>
                 <MyEditor code={"Code can't see"} blur={true} ></MyEditor>
             </div>
             <div style={{display: 'flex'}}>
