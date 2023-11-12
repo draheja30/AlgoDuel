@@ -3,7 +3,7 @@ import { Editor } from '@monaco-editor/react';
 import { FormControl, InputLabel, Select, MenuItem, Paper, Button } from '@material-ui/core';
 
 
-const PlayerSection = ({ playerNumber, isCurrentUser }) => {
+const PlayerSection = ({ playerNumber, isCurrentUser, handleEditorDidMount }) => {
     const [language, setLanguage] = useState('Javascript');
     const [theme, setTheme] = useState('vs-dark');
     const [code, setCode] = useState('');
@@ -37,8 +37,8 @@ const PlayerSection = ({ playerNumber, isCurrentUser }) => {
             setOutput('Error executing code');
         }
     };
-    
 
+    
     const editorClassName = isCurrentUser ? '' : 'blurry'; // Apply blur effect if not the current user
     return (
         <Paper style={{ flex: 1, margin: '10px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
@@ -48,7 +48,7 @@ const PlayerSection = ({ playerNumber, isCurrentUser }) => {
                         <InputLabel shrink>{`Language`}</InputLabel>
                         <Select value={language} onChange={handleLanguageChange}>
                             <MenuItem value="Javascript">JavaScript</MenuItem>
-                            <MenuItem value="Python">Python</MenuItem>
+                            {/* <MenuItem value="Python">Python</MenuItem> */}
                         </Select>
                     </FormControl>
                     <FormControl style={{ marginRight: '20px', minWidth: '120px' }}>
@@ -73,6 +73,7 @@ const PlayerSection = ({ playerNumber, isCurrentUser }) => {
                     theme={theme}
                     options={{ readOnly: !isCurrentUser }}
                     onChange={handleEditorChange}
+                    onMount={handleEditorDidMount}
                 />
             </div>
             <div style={{ 
