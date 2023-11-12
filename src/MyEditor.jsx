@@ -5,9 +5,10 @@ import './index.css'
 import { Editor } from '@monaco-editor/react'
 import { Button, FormControl, InputLabel, MenuItem, Select } from '@material-ui/core'
 
-function MyEditor(props) {
+function MyEditor({onChange, code, blur}) {
     const [lang, setLang] = useState('python');
     const [theme, setTheme] = useState('vs-dark')
+    const [value, setValue] = useState(code || "")
 
     const onLangChange = (event) => {
         setLang(event.target.value)
@@ -17,8 +18,13 @@ function MyEditor(props) {
         setTheme(event.target.value)
     }
 
+    const handleEditorChange = (value) => {
+        setValue(value);
+        onChange("code", value);
+      };
+
     return (
-        <div className={'MyEditor' + (props.blur ? ' blurry' : '')} style={{
+        <div className={'MyEditor' + (blur ? ' blurry' : '')} style={{
             margin: 20
         }}>
             <FormControl>
@@ -43,14 +49,14 @@ function MyEditor(props) {
             </Select>
             
             </FormControl>
-            {props.blur ? <Button>COMPILE</Button> : <></>}
+            {blur ? <></> : <Button>COMPILE</Button>}
             <Editor
                 width={'40vw'}
                 height={'70vh'}
                 theme={theme}
                 language={lang}
-                options={{readOnly: props.blur}}
-                value={props.blur ? "Text can't be read" : ""}
+                options={{readOnly: blur}}
+                value={value}
             />
         </div>
     )

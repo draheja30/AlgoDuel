@@ -9,9 +9,23 @@ import MyEditor from './MyEditor.jsx'
 function Duel() {
 
     return (
-        <div className='Duel' style={{display: 'flex'}}>
-            <MyEditor/>
-            <MyEditor blur={true} ></MyEditor>
+        <div className='Duel'>
+            <div style={{display: 'flex'}}>
+                <MyEditor blur={false}/>
+                <MyEditor code={"Code can't see"} blur={true} ></MyEditor>
+            </div>
+            <div style={{display: 'flex'}}>
+                <Editor
+                    height={'20vh'}
+                    width={'40vw'}
+                    options={{readOnly: true}}
+                />
+                <Editor
+                    height={'20vh'}
+                    width={'40vw'}
+                    options={{readOnly: true}}
+                />
+            </div>
         </div>
     )
 }
