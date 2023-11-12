@@ -28,10 +28,10 @@ const PlayerSection = ({ playerNumber, isCurrentUser }) => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ language, code }),
+                body: JSON.stringify({ language, code}),
             });
             const result = await response.json();
-            setOutput(`Output:\n${result}`);
+            setOutput(`Output:\n${result.stdout}`);
         } catch (error) {
             console.error('Error executing code: ', error);
             setOutput('Error executing code');
