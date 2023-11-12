@@ -1,0 +1,17 @@
+{
+    "problems": [
+        {
+            "description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. \nnums = [2, 7, 11, 15], target = 9 \nexpected_output : [0, 1]"
+        },
+        {
+            "description": "Given a 32-bit signed integer, reverse digits of an integer.",
+            "input": "x = 123",
+            "expected_output": "321"
+        },
+        {
+            "description": "Given a string, find the length of the longest substring without repeating characters.",
+            "input": "s = 'abcabcbb'",
+            "expected_output": "3"
+        }
+    ]
+}
